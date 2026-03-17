@@ -17,7 +17,7 @@ async function getSquirrels() {
   try {
     const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json')
     const data = await response.json()
-    squirrel.value = data
+    squirrels.value = data
   } catch (error) {
     console.log(error)
   }
