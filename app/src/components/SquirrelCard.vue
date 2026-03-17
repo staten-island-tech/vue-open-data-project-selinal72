@@ -21,4 +21,16 @@ const sqPath = computed(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.card {
+  display: block;
+  padding: 1rem;
+  margin: 1rem;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+h2 {
+  margin: 0;
+}
+</style>

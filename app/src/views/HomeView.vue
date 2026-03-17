@@ -2,7 +2,7 @@
   <div class="container">
     <SquirrelCard
       v-for="(squeak, index) in squirrels"
-      :key="squeak.name"
+      :key="squeak.unique_squirrel_id"
       :squirrel="squeak"
       :id="index + 1"
     />
@@ -15,9 +15,11 @@ import SquirrelCard from '@/components/SquirrelCard.vue'
 const squirrels = ref([])
 async function getSquirrels() {
   try {
-    const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json')
+    const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json?$limit=100')
+    if (!response.ok) throw new Error("Failed to fetch squirrels")
     const data = await response.json()
-    squirrels.value = data
+    squirrels.value = data.filter(squirrel => squirrel.unique_squirrel_id)
+    squirrels.value.forEach((squirrel) => console.log(squirrel.unique_squirrel_id))
   } catch (error) {
     console.log(error)
   }
