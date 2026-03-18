@@ -1,7 +1,10 @@
 <template>
-  <router-link :to="sqPath" class="card">
+  <div class="card">
+    <router-link :to="sqPath">
     <h2>{{ squirrel.unique_squirrel_id }}</h2>
-  </router-link>
+    </router-link>
+    <h3>{{ squirrel.primary_fur_color }}</h3>
+  </div>
 </template>
 
 <script setup>

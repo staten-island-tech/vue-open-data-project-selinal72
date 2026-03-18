@@ -12,7 +12,7 @@ const squirrel = ref({})
 async function getSquirrel(id){
     const response = await fetch(`https://data.cityofnewyork.us/resource/vfnx-vebw.json`)
     const data = await response.json()
-    squirrel.value = data[id]
+    squirrel.value = data
 }
 onMounted(function(){
     getSquirrel(route.params.id)

@@ -18,7 +18,7 @@ async function getSquirrels() {
     const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json?$limit=100')
     if (!response.ok) throw new Error("Failed to fetch squirrels")
     const data = await response.json()
-    squirrels.value = data.filter(squirrel => squirrel.unique_squirrel_id)
+    squirrels.value = data.filter(squirrel => squirrel.primary_fur_color)
     squirrels.value.forEach((squirrel) => console.log(squirrel.unique_squirrel_id))
   } catch (error) {
     console.log(error)
