@@ -11,8 +11,8 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/sq/:id',
-      name: 'sq',
+      path: '/info/:id',
+      name: 'SquirrelData',
       component: SquirrelData,
     },
   ],

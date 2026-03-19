@@ -1,30 +1,29 @@
 <template>
-  <div class="card">
-    <router-link :to="sqPath">
-      <h2>{{ squirrel.unique_squirrel_id }}</h2>
-    </router-link>
-    <h3>{{ squirrel.primary_fur_color }}</h3>
+  <div class="card" @click="goToDetails">
+    <h2>{{ squirrel.unique_squirrel_id }}</h2>
+    <p>primary fur color: {{ squirrel.primary_fur_color }}</p>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { computed } from 'vue'
+/* import { ref, onMounted } from 'vue'
+import { computed } from 'vue' */
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const props = defineProps({
-  squirrel: {
+  squeak: {
     type: Object,
     required: true,
   },
-  id: {
-    type: Number,
-    required: true,
-  },
-})
-const sqPath = computed(() => {
-  return `/sq/${props.squirrel.unique_squirrel_id}`
 })
 
-const squirrels = ref([])
+function goToDetails() {
+  router.push(`/info/${props.place.unique_squirrel_id}`)
+}
+
+/* const squirrels = ref([])
 async function getSquirrels() {
   const response = await fetch(`https://data.cityofnewyork.us/resource/vfnx-vebw.json`)
   const data = await response.json()
@@ -46,7 +45,7 @@ async function getColors(fur_colors, squirrels) {
 }
 onMounted(() => {
   getSquirrels()
-})
+}) */
 </script>
 
 <style scoped>

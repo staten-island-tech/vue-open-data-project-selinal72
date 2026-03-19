@@ -1,18 +1,15 @@
 <template>
   <div class="container">
-    <SquirrelCard
-      v-for="(squeak, index) in squirrels"
-      :key="squeak.unique_squirrel_id"
-      :squirrel="squeak"
-      :id="index + 1"
-    />
+    <SquirrelCard v-for="squeak in squirrels" :key="squeak.unique_squirrel_id" :squirrel="squeak" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import SquirrelCard from '@/components/SquirrelCard.vue'
+
 const squirrels = ref([])
+
 async function getSquirrels() {
   try {
     const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json?$limit=50')
