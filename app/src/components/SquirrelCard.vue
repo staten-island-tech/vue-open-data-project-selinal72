@@ -12,15 +12,15 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const props = defineProps({
-  squeak: {
+const { squirrel } = defineProps({
+  squirrel: {
     type: Object,
     required: true,
   },
 })
 
 function goToDetails() {
-  router.push(`/info/${props.place.unique_squirrel_id}`)
+  router.push(`/info/${squirrel.unique_squirrel_id}`)
 }
 
 /* const squirrels = ref([])

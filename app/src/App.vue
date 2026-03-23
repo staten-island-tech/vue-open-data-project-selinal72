@@ -1,11 +1,13 @@
 <template>
-    <div>
+  <div>
+    <PieChart />
+    <RouterView />
+  </div>
+</template>
   
-      <RouterView />
-    </div>
-  </template>
+<script setup>
+  import PieChart from '@/components/PieChart.vue'
+</script>
   
-  <script setup></script>
-  
-  <style scoped></style>
+<style scoped></style>
   
