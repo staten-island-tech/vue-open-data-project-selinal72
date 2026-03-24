@@ -1,26 +1,19 @@
 <template>
   <div class="container">
-    <SquirrelCard v-for="squeak in squirrels" :key="squeak.unique_squirrel_id" :squirrel="squeak" />
+    <div v-if="store.loading">Loading...</div>
+    <div v-if="store.error">Error: {{ store.error }}</div>
+    <SquirrelCard v-for="squeak in store.squirrels" :key="squeak.unique_squirrel_id" :squirrel="squeak" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { store } from '@/store.js'
 import SquirrelCard from '@/components/SquirrelCard.vue'
 
-const squirrels = ref([])
-
-async function getSquirrels() {
-  try {
-    const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json?$limit=50')
-    if (!response.ok) throw new Error('Failed to fetch squirrels')
-    const data = await response.json()
-    squirrels.value = data.filter((squirrel) => squirrel.primary_fur_color)
-  } catch (error) {
-    console.log(error)
-  }
-}
 onMounted(() => {
-  getSquirrels()
+  if (!store.squirrels.length) {
+    store.fetchSquirrels()
+  }
 })
 </script>

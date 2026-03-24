@@ -29,19 +29,4 @@ const chartOptions = reactive({
     title: { display: true, text: 'Monthly Data' },
   },
 })
-  /* export default {
-    name: 'PieChart',
-    components: { Pie },
-    data() {
-      return {
-        chartData: {
-          labels: [ 'January', 'February', 'March' ],
-          datasets: [ { data: [40, 20, 12] } ]
-        },
-        chartOptions: {
-          responsive: true
-        }
-      }
-    }
-  } */
-  </script>
+</script>

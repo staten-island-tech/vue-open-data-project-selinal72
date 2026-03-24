@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const { squirrel } = defineProps({
+const props = defineProps({
   squirrel: {
     type: Object,
     required: true,
@@ -56,6 +56,7 @@ onMounted(() => {
   background: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  cursor: pointer;
 }
 h2 {
   margin: 0;
