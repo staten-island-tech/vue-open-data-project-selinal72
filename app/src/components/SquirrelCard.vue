@@ -1,7 +1,7 @@
 <template>
   <div class="card" @click="goToDetails">
-    <h2>{{ squirrel.unique_squirrel_id }}</h2>
-    <p>primary fur color: {{ squirrel.primary_fur_color }}</p>
+    <h2>{{ props.squirrel.unique_squirrel_id }}</h2>
+    <p>primary fur color: {{ props.squirrel.primary_fur_color }}</p>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ const props = defineProps({
 })
 
 function goToDetails() {
-  router.push(`/info/${squirrel.unique_squirrel_id}`)
+  router.push(`/info/${props.squirrel.unique_squirrel_id}`)
 }
 
 /* const squirrels = ref([])

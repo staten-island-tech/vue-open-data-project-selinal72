@@ -1,4 +1,5 @@
 <template>
+  <PieChart />
   <div class="container">
     <div v-if="store.loading">Loading...</div>
     <div v-if="store.error">Error: {{ store.error }}</div>
@@ -8,8 +9,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { store } from '@/store.js'
+import { store } from '@/store/store.js'
 import SquirrelCard from '@/components/SquirrelCard.vue'
+import PieChart from '@/components/PieChart.vue'
 
 onMounted(() => {
   if (!store.squirrels.length) {
