@@ -30,4 +30,8 @@ const chartOptions = {
   color: #c00;
   margin-top: 1rem;
 }
+
+div {
+  min-width: 20%;
+}
 </style>

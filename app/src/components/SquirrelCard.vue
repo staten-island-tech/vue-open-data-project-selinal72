@@ -1,7 +1,7 @@
 <template>
   <div class="card" @click="goToDetails">
-    <h2>{{ props.squirrel.unique_squirrel_id }}</h2>
-    <p>primary fur color: {{ props.squirrel.primary_fur_color }}</p>
+    <h2>Squirrel {{ props.squirrel.unique_squirrel_id }}</h2>
+    <p>Primary Fur Color: {{ props.squirrel.primary_fur_color }}</p>
   </div>
 </template>
 
